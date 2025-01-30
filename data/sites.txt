@@ -1,4 +1,5 @@
 # No ID   Latitude Longitude   Elev   Observer
+0000 DE	  40.5959   -3.6991    800    EA4GPZ
 1111 RL   38.9478 -104.5614   2073    Ron Lee
 4171 CB   52.8344    6.3785     10    Cees Bassa
 4172 LB   52.3713    5.2580     -3    Leo Barhorst
@@ -63,3 +64,4 @@
 6241 JM   42.9565   -2.8203    619    Jon Mikel
 4160 BD   51.2793    5.4768     35    Bram Dorreman
 9999 GR   47.348     5.5151    100    Graves
+

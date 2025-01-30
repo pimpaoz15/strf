@@ -57,8 +57,10 @@
 
 #ifdef linux
 #include <stdint.h>
-void sincos(double x, double *s, double *c); /* declared where? */
+//void sincos(double x, double *s, double *c); /* declared where? */
 #endif
+
+#include "sincos_compat.h"
 
 /*
  * ================= SYSTEM SPECIFIC DEFINITIONS =====================

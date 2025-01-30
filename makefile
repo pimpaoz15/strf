@@ -1,8 +1,8 @@
 # Compiling flags
-CFLAGS = -O3
+CFLAGS = -O3 -I/opt/homebrew/opt/pgplot/include -I/opt/homebrew/opt/fftw/include -I/opt/homebrew/opt/sox/include -I/opt/homebrew/opt/cmocka/include
 
 # Linking flags
-LFLAGS = -lcpgplot -lpgplot -lX11 -lpng -lm -lgsl -lgslcblas
+LFLAGS = -L/opt/homebrew/opt/pgplot/lib -L/opt/X11/lib -L/opt/homebrew/opt/gsl/lib -L/opt/homebrew/opt/fftw/lib -L/opt/homebrew/opt/sox/lib -lcpgplot -lpgplot -lX11 -lpng -lm -lgsl -lgslcblas -L/opt/homebrew/opt/sox/include
 
 # Compiler
 CC = gcc
@@ -38,10 +38,10 @@ rfplot: rfplot.o rftime.o rfio.o rftrace.o sgdp4.o satutl.o deep.o ferror.o vers
 	gfortran -o rfplot rfplot.o rftime.o rfio.o rftrace.o sgdp4.o satutl.o deep.o ferror.o versafit.o dsmin.o simplex.o rftles.o zscale.o $(LFLAGS)
 
 rffft: rffft.o rffft_internal.o rftime.o
-	$(CC) -o rffft rffft.o rffft_internal.o rftime.o -lfftw3f -lm -lsox
+	$(CC) -o rffft rffft.o rffft_internal.o rftime.o -L/opt/homebrew/opt/fftw/lib -L/opt/homebrew/opt/sox/lib -lfftw3f -lsox -lm
 
 tests/tests: tests/tests.o tests/tests_rffft_internal.o tests/tests_rftles.o rffft_internal.o rftles.o satutl.o ferror.o
-	$(CC) -Wall -o $@ $^ -lcmocka -lm
+	$(CC) -Wall -o $@ $^ -L/opt/homebrew/opt/cmocka/lib -lcmocka -lm
 
 tests: tests/tests
 	./tests/tests
